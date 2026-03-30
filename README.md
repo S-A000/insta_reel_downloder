@@ -6,7 +6,6 @@ A lightweight Chrome extension + local Python server to grab Instagram reels/vid
 
 - Detects Instagram video payloads in browser requests (`background.js`)
 - In extension popup: enter desired filename + click Download (`popup.html` / `popup.js`)
-- Sends URL to backend at `http://localhost:5000/download`
 - Backend downloads via `yt_dlp`, then runs SSIS package (`server.py`)
 
 ## 🧩 Architecture
@@ -28,11 +27,11 @@ A lightweight Chrome extension + local Python server to grab Instagram reels/vid
    - `server.py`:
      - expects `{ url, fileName }`
      - `yt_dlp` config:
-       - `outtmpl`: `E:\datathing\Raw_reel\<custom>.%(ext)s`
+       - `outtmpl`: 
        - format best, cookiefile `cookies.txt`
      - runs SSIS:
-       - Package: `D:\python projects\pipeline\instapipeline\Package.dtsx`
-       - DTExec path: `C:\Program Files\Microsoft SQL Server\160\DTS\Binn\dtexec.exe`
+       - Package: 
+       - DTExec path: 
      - returns JSON status/message.
 
 ## 🛠️ Setup & installation
@@ -47,7 +46,7 @@ A lightweight Chrome extension + local Python server to grab Instagram reels/vid
 2. `pip install flask flask-cors yt_dlp`
 3. Have `cookies.txt` for authenticated Instagram access
 4. Create folder:
-   - `E:\datathing\Raw_reel`
+   
 5. Ensure SSIS package path exists and `dtexec` is installed
 
 ### Run backend
